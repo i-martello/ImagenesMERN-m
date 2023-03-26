@@ -34,14 +34,13 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently --kill-others \"react-scripts start\" \"nodemon server/index.js --exec babel-node --ignore src\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "nodemon server/index.js --exec babel-node --ignore src",
     "server:build": "babel server -d dist",
-    "server": "node dist/index.js",
-    "host": "concurrently --kill-others \"react-scripts start\" \"nodemon server/index.js --exec babel-node --ignore src\""
+    "server": "node dist/index.js"
   },
   "eslintConfig": {
     "extends": [
